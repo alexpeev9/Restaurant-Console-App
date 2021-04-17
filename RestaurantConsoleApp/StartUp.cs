@@ -1,8 +1,14 @@
 ﻿namespace RestaurantConsoleApp
 {
     using Microsoft.Extensions.DependencyInjection;
+    using RestaurantConsoleApp.Core.Engine;
+    using RestaurantConsoleApp.Core.Engine.Interfaces;
     using RestaurantConsoleApp.Core.IO;
     using RestaurantConsoleApp.Core.IO.Interfaces;
+    using RestaurantConsoleApp.Models.Interfaces;
+    using RestaurantConsoleApp.Models.Products.Interfaces;
+    using RestaurantConsoleApp.Repositories;
+    using RestaurantConsoleApp.Repositories.Interfaces;
     using System;
     public class StartUp
     {
@@ -14,9 +20,6 @@
         {
             var serviceCollection = new ServiceCollection();
 
-            //serviceCollection.AddTransient<IItemFactory, ItemFactory>();
-            //serviceCollection.AddTransient<IMonsterFactory, MonsterFactory>();
-            //serviceCollection.AddTransient<IHeroFactory, HeroFactory>();
             //serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
 
             serviceCollection.AddTransient<IWriter, ConsoleWriter>();
@@ -24,9 +27,8 @@
 
             serviceCollection.AddTransient<IEngine, Engine>();
 
-            //serviceCollection.AddSingleton<IRepository<IHero>, HeroRepository>();
-            //serviceCollection.AddSingleton<IRepository<IMonster>, MonsterRepository>();
-            //serviceCollection.AddSingleton<IRepository<IItem>, ItemRepository>();
+            serviceCollection.AddSingleton<IRepository<IBaseModel>, ClientRepository>();
+            serviceCollection.AddSingleton<IRepository<IBaseModel>, ProductRepository>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
             return serviceProvider;

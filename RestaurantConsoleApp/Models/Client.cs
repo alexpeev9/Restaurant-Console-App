@@ -4,7 +4,8 @@ namespace RestaurantConsoleApp.Models
 {
     public class Client : BaseModel
     {
-        public Client(string username, decimal balance) : base(username, balance)
+        private const int ClientBalance = 0;
+        public Client(string username) : base(username, ClientBalance)
         {
         }
     }

@@ -9,7 +9,7 @@ namespace RestaurantConsoleApp.Factories
 {
     public class ClientFactory : IClientFactory
     {
-        public IBaseModel Create(string clientType, string username, decimal balance)
+        public IBaseModel Create(string clientType, string username)
         {
             var clientName = clientType.ToLower();
 
@@ -20,7 +20,7 @@ namespace RestaurantConsoleApp.Factories
 
             Validator.ThrowAnExceptionIfObjectIsNull(type, nameof(IBaseModel));
 
-            var client = Activator.CreateInstance(type, username, balance) as IBaseModel;
+            var client = Activator.CreateInstance(type, username) as IBaseModel;
 
             return client;
         }

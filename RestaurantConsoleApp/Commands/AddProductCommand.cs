@@ -11,7 +11,7 @@ namespace RestaurantConsoleApp.Commands
 {
     public class AddProductCommand : ICommand
     {
-        private const string SuccessfullyAddedMessage = "Successfully added new: {0}!";
+        private const string SuccessfullyAddedMessage = "Successfully added: {0}!";
 
         private readonly IRepository<IProduct> _productRepository;
         private readonly IProductFactory _productFactory;

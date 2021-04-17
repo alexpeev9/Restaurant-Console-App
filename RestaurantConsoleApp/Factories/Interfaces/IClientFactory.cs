@@ -4,7 +4,7 @@ namespace RestaurantConsoleApp.Factories.Interfaces
 {
     public interface IClientFactory
     {
-        IBaseModel Create(string clientType, string username, decimal balance);
+        IBaseModel Create(string clientType, string username);
 
     }
 }

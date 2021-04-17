@@ -15,9 +15,23 @@
         protected BaseModel(string username, decimal balance)
         {
             this.Username = username;
-            this.Balance = balance ;
+            this.Balance = balance;
             this.Inventory = new Inventory();
             this.TotalBalance = this.GetTotalBalance();
+        }
+        public decimal Balance
+        {
+            get
+            {
+                return this.balance;
+            }
+
+            private set
+            {
+                Validator.ThrowAnExceptionIfIntIsLessThanZero(nameof(this.Balance), value);
+
+                this.balance = value;
+            }
         }
         public IInventory Inventory { get; }
 
@@ -38,20 +52,6 @@
                 this.username = value;
             }
         }
-        public decimal Balance
-        {
-            get
-            {
-                return this.balance;
-            }
-
-            private set
-            {
-                Validator.ThrowAnExceptionIfIntIsLessThanZero(nameof(this.Balance), value);
-
-                this.balance = value;
-            }
-        }
         public decimal TotalBalance
         {
             get
@@ -68,7 +68,7 @@
         }
 
         private decimal GetTotalBalance()
-          => this.totalBalance = this.Balance -
+          => this.totalBalance = this.Balance +
                                        this.Inventory.Products.Sum(x => x.Price);
 
         public void Transaction(decimal inputDamagePoints)
@@ -76,11 +76,6 @@
             if (!this.IsBroke)
             {
                 throw new InvalidOperationException("You are broke!");
-            }
-
-            if (this.TotalBalance > 0)
-            {
-                this.TotalBalance  -= inputDamagePoints;
             }
         }
     }

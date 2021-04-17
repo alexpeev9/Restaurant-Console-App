@@ -25,8 +25,7 @@ namespace RestaurantConsoleApp.Commands
         {
             string clientType = inputArgs[0];
             string username = inputArgs[1];
-            decimal balance = decimal.Parse(inputArgs[2]);
-            var client = _clientFactory.Create(clientType, username, balance);
+            var client = _clientFactory.Create(clientType, username);
 
             _clientRepository.Add(client);
 

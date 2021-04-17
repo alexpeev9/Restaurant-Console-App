@@ -1,14 +1,9 @@
-﻿using RestaurantConsoleApp.Commands.Interfaces;
-using RestaurantConsoleApp.Factories.Interfaces;
-using RestaurantConsoleApp.Models.Interfaces;
-using RestaurantConsoleApp.Models.Products.Interfaces;
-using RestaurantConsoleApp.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestaurantConsoleApp.Commands
+﻿namespace RestaurantConsoleApp.Commands
 {
+    using RestaurantConsoleApp.Commands.Interfaces;
+    using RestaurantConsoleApp.Models.Interfaces;
+    using RestaurantConsoleApp.Models.Products.Interfaces;
+    using RestaurantConsoleApp.Repositories.Interfaces;
     public class AddProductToClientCommand : ICommand
     {
         private const string SuccessfulMessage = "Successfuly added {0} to {1}";

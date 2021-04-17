@@ -1,12 +1,9 @@
-﻿using RestaurantConsoleApp.Commands.Interfaces;
-using RestaurantConsoleApp.Models.Interfaces;
-using RestaurantConsoleApp.Repositories.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestaurantConsoleApp.Commands
+﻿namespace RestaurantConsoleApp.Commands
 {
+    using RestaurantConsoleApp.Commands.Interfaces;
+    using RestaurantConsoleApp.Models.Interfaces;
+    using RestaurantConsoleApp.Repositories.Interfaces;
+    using System;
     public class ShowClientInventoryCommand : ICommand
     {
         private const string SuccessfulMessage = "Customer: {0}\nInventory: {1}\nBalance: {2}";

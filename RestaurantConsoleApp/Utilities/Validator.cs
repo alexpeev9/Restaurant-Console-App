@@ -3,7 +3,6 @@
     using RestaurantConsoleApp.Models.Inventories;
     using RestaurantConsoleApp.Models.Products.Interfaces;
     using System;
-    using System.Collections.Generic;
 
     public class Validator
     {

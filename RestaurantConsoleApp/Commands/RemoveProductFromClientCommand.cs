@@ -1,15 +1,10 @@
-﻿using RestaurantConsoleApp.Commands.Interfaces;
-using RestaurantConsoleApp.Factories.Interfaces;
-using RestaurantConsoleApp.Models.Interfaces;
-using RestaurantConsoleApp.Models.Products.Interfaces;
-using RestaurantConsoleApp.Repositories.Interfaces;
-using RestaurantConsoleApp.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace RestaurantConsoleApp.Commands
+﻿namespace RestaurantConsoleApp.Commands
 {
+    using RestaurantConsoleApp.Commands.Interfaces;
+    using RestaurantConsoleApp.Models.Interfaces;
+    using RestaurantConsoleApp.Models.Products.Interfaces;
+    using RestaurantConsoleApp.Repositories.Interfaces;
+    using RestaurantConsoleApp.Utilities;
     public class RemoveProductFromClientCommand : ICommand
     {
         private const string SuccessfulMessage = "Successfuly removed {0} from {1}";
@@ -31,9 +26,12 @@ namespace RestaurantConsoleApp.Commands
                 .Get(clientUserName);
             var product = _productRepository
                 .Get(productName);
+
             Validator.ThrowAnExceptionIfProductIsNotExisting(client.Inventory, product);
             client.Inventory.RemoveProduct(product);
+
             client.RemoveFromBalance(product.Price);
+
             string result = string.Format(SuccessfulMessage, productName, clientUserName);
             return result;
         }

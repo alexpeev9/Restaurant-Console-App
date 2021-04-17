@@ -7,9 +7,7 @@
 
         decimal Balance { get; }
         IInventory Inventory { get; }
-
-        bool IsBroke { get; }
-        decimal TotalBalance { get; }
-        void Transaction(decimal inputDamagePoints);
+        void AddToBalance(decimal price);
+        //decimal TotalBalance { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using RestaurantConsoleApp.Commands.Interfaces;
+using RestaurantConsoleApp.Factories.Interfaces;
 using RestaurantConsoleApp.Models.Interfaces;
 using RestaurantConsoleApp.Models.Products.Interfaces;
 using RestaurantConsoleApp.Repositories.Interfaces;
@@ -14,7 +15,7 @@ namespace RestaurantConsoleApp.Commands
 
         private readonly IRepository<IBaseModel> _clientRepository;
         private readonly IRepository<IProduct> _productRepository;
-
+        private readonly IProductFactory _productFactory;
         public AddProductToClientCommand(IRepository<IBaseModel> clientRepository, IRepository<IProduct> productRepository)
         {
             _clientRepository = clientRepository;
@@ -32,9 +33,8 @@ namespace RestaurantConsoleApp.Commands
                 .Get(productName);
 
             client.Inventory.AddProduct(product);
-
+            client.AddToBalance(product.Price);
             string result = string.Format(SuccessfulMessage, productName, clientUserName);
-
             return result;
         }
     }

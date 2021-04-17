@@ -36,5 +36,9 @@
 
             return targetProduct;
         }
+        public override string ToString()
+        {
+            return "\n"+string.Join("\n", _products.Select( x=> x.GetType().Name));
+        }
     }
 }

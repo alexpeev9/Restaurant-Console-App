@@ -2,6 +2,7 @@
 {
     using RestaurantConsoleApp.Models.Interfaces;
     using RestaurantConsoleApp.Models.Inventories;
+    using RestaurantConsoleApp.Models.Products.Interfaces;
     using RestaurantConsoleApp.Utilities;
     using System;
     using System.Linq;
@@ -17,7 +18,7 @@
             this.Username = username;
             this.Balance = balance;
             this.Inventory = new Inventory();
-            this.TotalBalance = this.GetTotalBalance();
+            //this.TotalBalance = this.GetTotalBalance();
         }
         public decimal Balance
         {
@@ -34,9 +35,6 @@
             }
         }
         public IInventory Inventory { get; }
-
-        public bool IsBroke
-            => this.TotalBalance > 0;
 
         public string Username
         {
@@ -66,17 +64,12 @@
                 this.totalBalance = value;
             }
         }
-
-        private decimal GetTotalBalance()
-          => this.totalBalance = this.Balance +
-                                       this.Inventory.Products.Sum(x => x.Price);
-
-        public void Transaction(decimal inputDamagePoints)
+        public void AddToBalance(decimal price)
         {
-            if (!this.IsBroke)
-            {
-                throw new InvalidOperationException("You are broke!");
-            }
+            this.Balance += price;
         }
+        //private decimal GetTotalBalance()
+        //  => this.totalBalance = this.Balance +
+        //                               this.Inventory.Products.Sum(x => x.Price);
     }
 }

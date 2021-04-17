@@ -5,6 +5,8 @@
     using RestaurantConsoleApp.Core.Engine.Interfaces;
     using RestaurantConsoleApp.Core.IO;
     using RestaurantConsoleApp.Core.IO.Interfaces;
+    using RestaurantConsoleApp.Factories;
+    using RestaurantConsoleApp.Factories.Interfaces;
     using RestaurantConsoleApp.Models.Interfaces;
     using RestaurantConsoleApp.Models.Products.Interfaces;
     using RestaurantConsoleApp.Repositories;
@@ -20,6 +22,8 @@
         {
             var serviceCollection = new ServiceCollection();
 
+            serviceCollection.AddTransient<IProductFactory, ProductFactory>();
+            serviceCollection.AddTransient<IClientFactory, ClientFactory>();
             //serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
 
             serviceCollection.AddTransient<IWriter, ConsoleWriter>();

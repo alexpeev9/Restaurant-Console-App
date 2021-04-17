@@ -1,6 +1,7 @@
 ﻿namespace RestaurantConsoleApp
 {
     using Microsoft.Extensions.DependencyInjection;
+    using RestaurantConsoleApp.Commands.CommandInterpreter;
     using RestaurantConsoleApp.Core.Engine;
     using RestaurantConsoleApp.Core.Engine.Interfaces;
     using RestaurantConsoleApp.Core.IO;
@@ -8,7 +9,6 @@
     using RestaurantConsoleApp.Factories;
     using RestaurantConsoleApp.Factories.Interfaces;
     using RestaurantConsoleApp.Models.Interfaces;
-    using RestaurantConsoleApp.Models.Products.Interfaces;
     using RestaurantConsoleApp.Repositories;
     using RestaurantConsoleApp.Repositories.Interfaces;
     using System;
@@ -24,7 +24,7 @@
 
             serviceCollection.AddTransient<IProductFactory, ProductFactory>();
             serviceCollection.AddTransient<IClientFactory, ClientFactory>();
-            //serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
+            serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
 
             serviceCollection.AddTransient<IWriter, ConsoleWriter>();
             serviceCollection.AddTransient<IReader, ConsoleReader>();

@@ -26,7 +26,6 @@
                 .Get(clientUserName);
             var product = _productRepository
                 .Get(productName);
-
             Validator.ThrowAnExceptionIfProductIsNotExisting(client.Inventory, product);
             client.Inventory.RemoveProduct(product);
 

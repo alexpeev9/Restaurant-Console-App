@@ -23,7 +23,9 @@
         }
         public static void ThrowAnExceptionIfProductIsNotExisting(IInventory currentCollection, IProduct product)
         {
-            if(!currentCollection.Products.Contains(product))
+            ThrowAnExceptionIfObjectIsNull(currentCollection, "Collection");
+            ThrowAnExceptionIfObjectIsNull(product, "Product");
+            if (!currentCollection.Products.Contains(product))
             {
                 throw new ArgumentException($"{product.GetType().Name} doesn't exist in Inventory");
             }

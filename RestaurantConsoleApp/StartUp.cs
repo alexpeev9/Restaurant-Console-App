@@ -17,6 +17,8 @@
         static void Main()
         {
             IServiceProvider serviceProvider = ConfigureServices();
+            IEngine engine = serviceProvider.GetService<IEngine>();
+            engine.Run();
         }
         private static IServiceProvider ConfigureServices()
         {

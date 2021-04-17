@@ -1,7 +1,10 @@
 ﻿namespace RestaurantConsoleApp.Core.Engine
 {
-    using RestaurantConsoleApp.Core.Engine.Interfaces;
+    using Microsoft.Extensions.DependencyInjection;
     using System;
+    using RestaurantConsoleApp.Core.Engine.Interfaces;
+    using RestaurantConsoleApp.Commands.CommandInterpreter;
+
     public class Engine : IEngine
     {
         private readonly IServiceProvider _serviceProvider;
@@ -18,10 +21,10 @@
                     var inputArgs = Console.ReadLine()
                           .Split(" ", StringSplitOptions.RemoveEmptyEntries);
 
-                    //var commandInterpreter = _serviceProvider.GetService<ICommandInterpreter>();
-                    //var result = commandInterpreter.Read(inputArgs);
+                    var commandInterpreter = _serviceProvider.GetService<ICommandInterpreter>();
+                    var result = commandInterpreter.Read(inputArgs);
 
-                    //Console.WriteLine(result);
+                    Console.WriteLine(result);
                 }
                 catch (ArgumentNullException ane)
                 {

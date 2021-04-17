@@ -9,6 +9,7 @@
     using RestaurantConsoleApp.Factories;
     using RestaurantConsoleApp.Factories.Interfaces;
     using RestaurantConsoleApp.Models.Interfaces;
+    using RestaurantConsoleApp.Models.Products.Interfaces;
     using RestaurantConsoleApp.Repositories;
     using RestaurantConsoleApp.Repositories.Interfaces;
     using System;
@@ -34,7 +35,7 @@
             serviceCollection.AddTransient<IEngine, Engine>();
 
             serviceCollection.AddSingleton<IRepository<IBaseModel>, ClientRepository>();
-            serviceCollection.AddSingleton<IRepository<IBaseModel>, ProductRepository>();
+            serviceCollection.AddSingleton<IRepository<IProduct>, ProductRepository>();
 
             var serviceProvider = serviceCollection.BuildServiceProvider();
             return serviceProvider;

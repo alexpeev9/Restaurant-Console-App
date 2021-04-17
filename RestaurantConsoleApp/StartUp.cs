@@ -4,8 +4,6 @@
     using RestaurantConsoleApp.Commands.CommandInterpreter;
     using RestaurantConsoleApp.Core.Engine;
     using RestaurantConsoleApp.Core.Engine.Interfaces;
-    using RestaurantConsoleApp.Core.IO;
-    using RestaurantConsoleApp.Core.IO.Interfaces;
     using RestaurantConsoleApp.Factories;
     using RestaurantConsoleApp.Factories.Interfaces;
     using RestaurantConsoleApp.Models.Interfaces;
@@ -29,8 +27,6 @@
             serviceCollection.AddTransient<IClientFactory, ClientFactory>();
             serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
 
-            serviceCollection.AddTransient<IWriter, ConsoleWriter>();
-            serviceCollection.AddTransient<IReader, ConsoleReader>();
 
             serviceCollection.AddTransient<IEngine, Engine>();
 

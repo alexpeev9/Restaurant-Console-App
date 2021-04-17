@@ -18,7 +18,7 @@ namespace RestaurantConsoleApp.Factories
                 .GetTypes()
                 .FirstOrDefault(x => x.Name.ToLower() == clientName);
 
-            Validator.ThrowAnExceptionIfObjectIsNull(type, nameof(IBaseModel));
+            Validator.ThrowAnExceptionIfObjectIsNull(type, "Client");
 
             var client = Activator.CreateInstance(type, username) as IBaseModel;
 

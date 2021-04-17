@@ -1,11 +1,11 @@
-﻿namespace RestaurantConsoleApp.Models.Products.Pizzas
+﻿namespace RestaurantConsoleApp.Models.Products.Classes.Pizzas
 {
     using RestaurantConsoleApp.Models.Products.Abstractions;
     public class DiavoloPizza : Product
     {
-        private const decimal DiavoloPizzaBalance = 5.50m;
+        private const decimal DiavoloPizzaPrice = 5.50m;
         public DiavoloPizza()
-            : base(DiavoloPizzaBalance)
+            : base(DiavoloPizzaPrice)
         {
         }
     }

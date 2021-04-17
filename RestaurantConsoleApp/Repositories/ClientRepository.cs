@@ -9,6 +9,8 @@
     public class ClientRepository : IRepository<IBaseModel>
     {
         private readonly ICollection<IBaseModel> _clients;
+        private readonly string clientTitle = "Client";
+
         public ClientRepository()
         {
             _clients = new List<IBaseModel>();
@@ -19,7 +21,7 @@
 
         public void Add(IBaseModel client)
         {
-            Validator.ThrowAnExceptionIfObjectIsNull(client, nameof(client));
+            Validator.ThrowAnExceptionIfObjectIsNull(client, clientTitle);
             _clients.Add(client);
         }
 
@@ -27,13 +29,13 @@
         {
             var targetClient = _clients.
                 FirstOrDefault(h => (h as IIdentifiable)?.Username == client);
-            Validator.ThrowAnExceptionIfObjectIsNull(targetClient, nameof(targetClient));
+            Validator.ThrowAnExceptionIfObjectIsNull(targetClient, clientTitle);
             return targetClient;
         }
 
         public bool Remove(IBaseModel client)
         {
-            Validator.ThrowAnExceptionIfObjectIsNull(client, nameof(client));
+            Validator.ThrowAnExceptionIfObjectIsNull(client, clientTitle);
             bool isRemoved = _clients.Remove(client);
             return isRemoved;
         }

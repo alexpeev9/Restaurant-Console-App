@@ -2,15 +2,12 @@
 {
     using RestaurantConsoleApp.Models.Interfaces;
     using RestaurantConsoleApp.Models.Inventories;
-    using RestaurantConsoleApp.Models.Products.Interfaces;
     using RestaurantConsoleApp.Utilities;
-    using System;
-    using System.Linq;
 
     public abstract class BaseModel : IIdentifiable , IBaseModel
     {
-        private string username;
-        private decimal balance;
+        private string _username;
+        private decimal _balance;
 
         protected BaseModel(string username, decimal balance)
         {
@@ -22,14 +19,14 @@
         {
             get
             {
-                return this.balance;
+                return _balance;
             }
 
             private set
             {
-                Validator.ThrowAnExceptionIfIntIsLessThanZero(nameof(this.Balance), value);
+                Validator.ThrowAnExceptionIfDecimalIsLessThanZero(nameof(this.Balance), value);
 
-                this.balance = value;
+                _balance = value;
             }
         }
         public IInventory Inventory { get; }
@@ -38,14 +35,14 @@
         {
             get
             {
-                return this.username;
+                return _username;
             }
 
             private set
             {
-                Validator.ThrowAnExceptionIfObjectIsNull(value, nameof(this.Username));
+                Validator.ThrowAnExceptionIfObjectIsNull(value, "Name");
 
-                this.username = value;
+                _username = value;
             }
         }
         public void AddToBalance(decimal price)

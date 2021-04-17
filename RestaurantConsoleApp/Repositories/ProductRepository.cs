@@ -8,7 +8,7 @@
     public class ProductRepository : IRepository<IProduct>
     {
         private readonly ICollection<IProduct> _productRepository;
-
+        private readonly string productTitle = "Product";
         public ProductRepository()
         {
             _productRepository = new List<IProduct>();
@@ -19,13 +19,13 @@
 
         public void Add(IProduct product)
         {
-            Validator.ThrowAnExceptionIfObjectIsNull(product, nameof(product));
+            Validator.ThrowAnExceptionIfObjectIsNull(product, productTitle);
             _productRepository.Add(product);
         }
 
         public IProduct Get(string product)
         {
-            Validator.ThrowAnExceptionIfObjectIsNull(product, nameof(product));
+            Validator.ThrowAnExceptionIfObjectIsNull(product, productTitle);
 
             var targetProduct = _productRepository
                 .FirstOrDefault(x => x.GetType().Name == product);
@@ -35,7 +35,7 @@
 
         public bool Remove(IProduct product)
         {
-            Validator.ThrowAnExceptionIfObjectIsNull(product, nameof(product));
+            Validator.ThrowAnExceptionIfObjectIsNull(product, productTitle);
             bool isRemoved = _productRepository.Remove(product);
             return isRemoved;
         }

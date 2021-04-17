@@ -6,7 +6,7 @@
 
     public class Validator
     {
-        public static void ThrowAnExceptionIfIntIsLessThanZero(string objectName, decimal value)
+        public static void ThrowAnExceptionIfDecimalIsLessThanZero(string objectName, decimal value)
         {
             if (value < 0)
             {
@@ -18,7 +18,7 @@
         {
             if (obj == null)
             {
-                throw new ArgumentException($"{paramName} cannot be null!");
+                throw new ArgumentException($"{paramName} doesn't exist!");
             }
         }
         public static void ThrowAnExceptionIfProductIsNotExisting(IInventory currentCollection, IProduct product)

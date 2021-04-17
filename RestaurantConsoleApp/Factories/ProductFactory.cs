@@ -20,7 +20,7 @@ namespace RestaurantConsoleApp.Factories
                 .GetTypes()
                 .FirstOrDefault(x => x.Name.ToLower() == productName);
 
-            Validator.ThrowAnExceptionIfObjectIsNull(type, nameof(IProduct));
+            Validator.ThrowAnExceptionIfObjectIsNull(type, "Product");
 
             var product = Activator.CreateInstance(type) as IProduct;
 

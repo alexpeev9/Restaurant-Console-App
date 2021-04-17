@@ -19,7 +19,7 @@
 
             private set
             {
-                Validator.ThrowAnExceptionIfIntIsLessThanZero(nameof(this.Price), value);
+                Validator.ThrowAnExceptionIfDecimalIsLessThanZero(nameof(this.Price), value);
 
                 _price = value;
             }

@@ -27,7 +27,6 @@
             serviceCollection.AddTransient<IClientFactory, ClientFactory>();
             serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
 
-
             serviceCollection.AddTransient<IEngine, Engine>();
 
             serviceCollection.AddSingleton<IRepository<IBaseModel>, ClientRepository>();

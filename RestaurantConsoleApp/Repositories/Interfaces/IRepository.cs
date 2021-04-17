@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     public interface IRepository<T>
     {
-        IReadOnlyCollection<T> Repository { get; }
+        ICollection<T> Repository { get; }
         void Add(T client);
         bool Remove(T client);
         T Get(string client);

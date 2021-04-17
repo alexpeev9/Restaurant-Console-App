@@ -7,7 +7,7 @@ namespace RestaurantConsoleApp.Models.Inventories
 {
     public interface IInventory
     {
-        IReadOnlyCollection<IProduct> Products { get; }
+        ICollection<IProduct> Products { get; }
 
         void AddProduct(IProduct product);
 

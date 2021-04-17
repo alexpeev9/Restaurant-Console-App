@@ -11,7 +11,7 @@
         {
             _products = new List<IProduct>();
         }
-        public IReadOnlyCollection<IProduct> Products =>
+        public ICollection<IProduct> Products =>
             _products.AsReadOnly();
         public void AddProduct(IProduct product)
         {

@@ -14,7 +14,7 @@
             _clients = new List<IBaseModel>();
         }
 
-        public IReadOnlyCollection<IBaseModel> Repository
+        public ICollection<IBaseModel> Repository
            => _clients.ToImmutableArray();
 
         public void Add(IBaseModel client)

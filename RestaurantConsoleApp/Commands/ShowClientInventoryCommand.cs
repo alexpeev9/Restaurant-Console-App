@@ -25,7 +25,7 @@ namespace RestaurantConsoleApp.Commands
             var client = _clientRepository
                 .Get(clientUserName);
             string inventory = String.Join(",",client.Inventory);
-            string balance = client.Balance.ToString();
+            string balance = client.Balance.ToString("F");
             string result = string.Format(SuccessfulMessage, clientUserName, inventory, balance);
 
             return result;

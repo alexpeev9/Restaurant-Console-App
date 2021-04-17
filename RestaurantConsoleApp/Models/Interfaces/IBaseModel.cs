@@ -3,11 +3,9 @@
     using RestaurantConsoleApp.Models.Inventories;
     public interface IBaseModel
     {
-       
-
         decimal Balance { get; }
         IInventory Inventory { get; }
         void AddToBalance(decimal price);
-        //decimal TotalBalance { get; }
+        void RemoveFromBalance(decimal price);
     }
 }

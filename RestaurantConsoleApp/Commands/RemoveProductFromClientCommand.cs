@@ -9,13 +9,13 @@ using System.Text;
 
 namespace RestaurantConsoleApp.Commands
 {
-    public class AddProductToClientCommand : ICommand
+    public class RemoveProductFromClientCommand : ICommand
     {
-        private const string SuccessfulMessage = "Successfuly added {0} to {1}";
+        private const string SuccessfulMessage = "Successfuly removed {0} from {1}";
 
         private readonly IRepository<IBaseModel> _clientRepository;
         private readonly IRepository<IProduct> _productRepository;
-        public AddProductToClientCommand(IRepository<IBaseModel> clientRepository, IRepository<IProduct> productRepository)
+        public RemoveProductFromClientCommand(IRepository<IBaseModel> clientRepository, IRepository<IProduct> productRepository)
         {
             _clientRepository = clientRepository;
             _productRepository = productRepository;
@@ -31,8 +31,8 @@ namespace RestaurantConsoleApp.Commands
             var product = _productRepository
                 .Get(productName);
 
-            client.Inventory.AddProduct(product);
-            client.AddToBalance(product.Price);
+            client.Inventory.RemoveProduct(product);
+            client.RemoveFromBalance(product.Price);
             string result = string.Format(SuccessfulMessage, productName, clientUserName);
             return result;
         }

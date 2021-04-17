@@ -11,14 +11,12 @@
     {
         private string username;
         private decimal balance;
-        private decimal totalBalance;
 
         protected BaseModel(string username, decimal balance)
         {
             this.Username = username;
             this.Balance = balance;
             this.Inventory = new Inventory();
-            //this.TotalBalance = this.GetTotalBalance();
         }
         public decimal Balance
         {
@@ -50,26 +48,13 @@
                 this.username = value;
             }
         }
-        public decimal TotalBalance
-        {
-            get
-            {
-                return this.totalBalance;
-            }
-
-            private set
-            {
-                Validator.ThrowAnExceptionIfIntIsLessThanZero(nameof(this.TotalBalance), value);
-
-                this.totalBalance = value;
-            }
-        }
         public void AddToBalance(decimal price)
         {
             this.Balance += price;
         }
-        //private decimal GetTotalBalance()
-        //  => this.totalBalance = this.Balance +
-        //                               this.Inventory.Products.Sum(x => x.Price);
+        public void RemoveFromBalance(decimal price)
+        {
+            this.Balance -= price;
+        }
     }
 }

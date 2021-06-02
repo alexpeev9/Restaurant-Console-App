@@ -16,19 +16,20 @@
         static void Main()
         {
             IServiceProvider serviceProvider = ConfigureServices();
-            IEngine engine = serviceProvider.GetService<IEngine>();
-            engine.Run();
+            IEngine engine = serviceProvider.GetService<IEngine>(); 
+            engine.Run(); // Reponsible for the program to run
         }
         private static IServiceProvider ConfigureServices()
         {
             var serviceCollection = new ServiceCollection();
-
+            
+            // New instance every time
             serviceCollection.AddTransient<IProductFactory, ProductFactory>();
             serviceCollection.AddTransient<IClientFactory, ClientFactory>();
             serviceCollection.AddTransient<ICommandInterpreter, CommandInterpreter>();
-
             serviceCollection.AddTransient<IEngine, Engine>();
 
+            // Only one Instance
             serviceCollection.AddSingleton<IRepository<IBaseModel>, ClientRepository>();
             serviceCollection.AddSingleton<IRepository<IProduct>, ProductRepository>();
 

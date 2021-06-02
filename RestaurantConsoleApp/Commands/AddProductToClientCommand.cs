@@ -18,8 +18,8 @@
 
         public string Execute(string[] inputArgs)
         {
-            string clientUserName = inputArgs[0];
-            string productName = inputArgs[1];
+            string productName = inputArgs[0];
+            string clientUserName = inputArgs[1];
 
             var client = _clientRepository
                 .Get(clientUserName);

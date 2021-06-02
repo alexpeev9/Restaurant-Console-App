@@ -4,6 +4,7 @@
     using RestaurantConsoleApp.Models.Inventories;
     using RestaurantConsoleApp.Utilities;
 
+
     public abstract class BaseModel : IIdentifiable , IBaseModel
     {
         private string _username;

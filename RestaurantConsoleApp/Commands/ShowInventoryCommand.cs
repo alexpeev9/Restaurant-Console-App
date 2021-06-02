@@ -4,13 +4,13 @@
     using RestaurantConsoleApp.Models.Interfaces;
     using RestaurantConsoleApp.Repositories.Interfaces;
     using System;
-    public class ShowClientInventoryCommand : ICommand
+    public class ShowInventoryCommand : ICommand
     {
         private const string SuccessfulMessage = "Customer: {0}\nInventory: {1}\nBalance: {2}";
 
         private readonly IRepository<IBaseModel> _clientRepository;
-
-        public ShowClientInventoryCommand(IRepository<IBaseModel> clientRepository)
+        
+        public ShowInventoryCommand(IRepository<IBaseModel> clientRepository)
         {
             _clientRepository = clientRepository;
         }

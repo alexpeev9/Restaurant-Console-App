@@ -1,12 +1,11 @@
-﻿using RestaurantConsoleApp.Factories.Interfaces;
-using RestaurantConsoleApp.Models.Interfaces;
-using RestaurantConsoleApp.Utilities;
-using System;
-using System.Linq;
-using System.Reflection;
-
-namespace RestaurantConsoleApp.Factories
+﻿namespace RestaurantConsoleApp.Factories
 {
+    using RestaurantConsoleApp.Factories.Interfaces;
+    using RestaurantConsoleApp.Models.Interfaces;
+    using RestaurantConsoleApp.Utilities;
+    using System;
+    using System.Linq;
+    using System.Reflection;
     public class ClientFactory : IClientFactory
     {
         public IBaseModel Create(string clientType, string username)

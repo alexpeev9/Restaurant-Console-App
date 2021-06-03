@@ -1,15 +1,11 @@
-﻿using RestaurantConsoleApp.Factories.Interfaces;
-using RestaurantConsoleApp.Models.Interfaces;
-using RestaurantConsoleApp.Models.Products.Interfaces;
-using RestaurantConsoleApp.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-namespace RestaurantConsoleApp.Factories
+﻿namespace RestaurantConsoleApp.Factories
 {
+    using RestaurantConsoleApp.Factories.Interfaces;
+    using RestaurantConsoleApp.Models.Products.Interfaces;
+    using RestaurantConsoleApp.Utilities;
+    using System;
+    using System.Linq;
+    using System.Reflection;
     public class ProductFactory : IProductFactory
     {
         public IProduct Create(string productType)

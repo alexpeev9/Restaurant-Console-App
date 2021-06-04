@@ -19,21 +19,18 @@ AddProduct CapricciosaPizza**\
 **Exit**
 
 ## Commands
-	*AddClient {Type-of-Client} {Name-of-Client}
-	*AddProduct {Name-of-Product}
-	*AddProductToClient {Name-of-Product} {Name-of-Client}
-	*RemoveProductFromClient {Name-of-Product} {Name-of-Client}
-	*ShowInventory {Name-of-Client}
-	*Exit
+	AddClient {Type-of-Client} {Name-of-Client}
+	AddProduct {Name-of-Product}
+	AddProductToClient {Name-of-Product} {Name-of-Client}
+	RemoveProductFromClient {Name-of-Product} {Name-of-Client}
+	ShowInventory {Name-of-Client}
+	Exit
 
 Обяснение по код:
 Приложението се стартира от главният клас StartUp. В класът имаме DI container в който са дефинирани всички Service-и. В Main методът извикваме класът Engine който е ядрото на програмата. Методът Engine.Run съдържа безкраен while цикъл който никога няма да спре, освен ако не бъде спрян с командата - Exit. Потребителят е длъжен да напише съобщение на конзолата и да го изпрати. След това кодът продължава в CommandInterpreter. В него според това каква команда и от какво се нуждаем ни отвежда на определена команда и ни зарежда определените service-и. 
 
 Използвани са 
-Interpreter Design Pattern,
-Command Design Patern, 
-Factory Design Pattern,
-Mediator Design Pattern
+Interpreter, Command, Factory, Mediator, Observer design patterns.
 
 Проектът е разделен на няколко подпапки.
 Models,

@@ -14,7 +14,7 @@
         }
         public void Run()
         {
-            while (true) // never stops except with "ExitCommand"
+            while (true)
             {
                 try
                 {
